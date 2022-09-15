@@ -25,7 +25,7 @@ export const PhotoList = ({
             key={photo.name}
             photo={photo}
             handleDelete={() => handleDeletePhoto(photo.name)}
-            gridView={variant === 'grid'}
+            small={variant !== 'grid'}
           />
         ))
       }
