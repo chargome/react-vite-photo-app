@@ -7,10 +7,20 @@ export const App = (): JSX.Element => {
 
   return (
     <div>
-      <h1>Photos App</h1>
-      <PhotoUploader handleUpload={handleUpload} />
-      <h2>Uploaded photos:</h2>
-      <FilterablePhotoList photos={photos} handleDeletePhoto={handleDelete} />
+      <div className="my-32">
+        <h1 className="mb-10 text-4xl lg:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-white to-anyline text-center py-5 font-extrabold uppercase tracking-wider">
+          Photo App
+        </h1>
+        <PhotoUploader handleUpload={handleUpload} />
+      </div>
+      <div className="mx-20 min-h-screen">
+        <h2 className="text-3xl font-bold">Uploaded photos:</h2>
+        {
+          photos.length < 1
+            ? <div className="text-sm p-4">No photos added yet</div>
+            : <FilterablePhotoList photos={photos} handleDeletePhoto={handleDelete} />
+        }
+      </div>
     </div>
   )
 };

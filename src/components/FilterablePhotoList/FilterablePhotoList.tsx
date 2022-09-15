@@ -16,13 +16,20 @@ export const FilterablePhotoList = ({ photos, handleDeletePhoto }: Props): JSX.E
 
   return (
     <>
-      <input type="text" value={query} onChange={handleInputChange} />
-      <div>
-        <PhotoList
-          photos={photos.filter((current) => current.name.includes(query))}
-          handleDeletePhoto={handleDeletePhoto}
+      <div className="p-4">
+        <label className="text-md">Filter images by name:</label>
+        <input
+          className="bg-black text-white p-1 ring-1 ring-white rounded m-2"
+          type="text"
+          value={query}
+          onChange={handleInputChange}
         />
       </div>
+      <PhotoList
+        photos={photos.filter((current) => current.name.includes(query))}
+        handleDeletePhoto={handleDeletePhoto}
+        variant="grid"
+      />
     </>
   );
 };
