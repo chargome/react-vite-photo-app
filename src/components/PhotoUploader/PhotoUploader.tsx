@@ -1,4 +1,5 @@
 import React from "react";
+import { useNotificationStore } from "../../store/Notification";
 import { Button } from "../Button";
 import { PhotoList } from "../PhotoList";
 import { PhotoPreview } from "../PhotoPreview";
@@ -10,9 +11,12 @@ interface Props {
 export const PhotoUploader = ({ handleUpload }: Props): JSX.Element => {
   const [tempFiles, setTempFiles] = React.useState<File[]>([]);
 
+  const showNotification = useNotificationStore((state) => state.show);
+
   const handleClickUpload = React.useCallback(() => {
     handleUpload(tempFiles);
     setTempFiles([]);
+    showNotification('Your files have been uploaded!')
   }, [handleUpload, tempFiles]);
 
   const handleDelete = React.useCallback((toDeleteFileName: string) => {

@@ -1,6 +1,7 @@
 import { FilterablePhotoList } from '../FilterablePhotoList';
 import { usePhotoStore } from '../../hooks';
 import { PhotoUploader } from '../PhotoUploader';
+import { Alert } from '../Alert/Alert';
 
 export const App = (): JSX.Element => {
   const { photos, handleDelete, handleUpload } = usePhotoStore();
@@ -21,6 +22,7 @@ export const App = (): JSX.Element => {
             : <FilterablePhotoList photos={photos} handleDeletePhoto={handleDelete} />
         }
       </div>
+      <Alert />
     </div>
   )
 };
