@@ -1,7 +1,5 @@
 import React from "react";
-import { HiX } from "react-icons/hi";
 import { bytesToMbLabel } from "../../util";
-import { Button } from "../Button";
 import { CloseIconButton } from "../CloseIconButton";
 interface Props {
   photo: File;
@@ -20,7 +18,7 @@ export const PhotoPreview = ({
     <div className="flex flex-col p-4">
       <div className="flex flex-row">
         <div className="flex flex-col items-start">
-          <div className="-mr-4">
+          <div className="-mr-4 self-end">
             <CloseIconButton
               handleClick={() => handleDelete(photo.name)}
             />
@@ -31,7 +29,7 @@ export const PhotoPreview = ({
           />
           <div
             className={`
-              ${small && 'bg-anyline bg-opacity-70 p-2 rounded -ml-4 -mt-4'}
+              ${!small && 'bg-anyline bg-opacity-90 p-2 rounded -ml-4 -mt-6'}
               text-xs flex flex-col
             `}
           >
