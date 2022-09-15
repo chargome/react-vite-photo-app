@@ -2,7 +2,6 @@ import React from "react";
 import { useNotificationStore } from "../../store/Notification";
 import { Button } from "../Button";
 import { PhotoList } from "../PhotoList";
-import { PhotoPreview } from "../PhotoPreview";
 
 interface Props {
   handleUpload: ([photos]: any[]) => void;
@@ -19,7 +18,7 @@ export const PhotoUploader = ({ handleUpload }: Props): JSX.Element => {
     showNotification('Your files have been uploaded!')
   }, [handleUpload, tempFiles]);
 
-  const handleDelete = React.useCallback((toDeleteFileName: string) => {
+  const handleClickDelete = React.useCallback((toDeleteFileName: string) => {
     setTempFiles(
       (prev) => 
         prev.filter((current) => current.name !== toDeleteFileName)
@@ -30,7 +29,7 @@ export const PhotoUploader = ({ handleUpload }: Props): JSX.Element => {
     <div className="flex flex-col items-center">
       <div className={`${tempFiles.length === 0 ? 'h-0' : 'h-46'} transition-all overflow-hidden`}>
         <PhotoList
-          handleDeletePhoto={handleDelete}
+          handleDeletePhoto={handleClickDelete}
           photos={tempFiles}
           variant="horizontal"
         />
