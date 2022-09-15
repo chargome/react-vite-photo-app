@@ -1,4 +1,5 @@
 import React from "react";
+import { PhotoList } from "../PhotoList";
 import { PhotoPreview } from "../PhotoPreview";
 
 interface Props {
@@ -22,7 +23,7 @@ export const PhotoUploader = ({ handleUpload }: Props): JSX.Element => {
 
   return (
     <>
-      <div>{tempFiles.map((f) => <PhotoPreview photo={f} key={f.name} handleDelete={handleDelete} />)}</div>
+      <PhotoList handleDeletePhoto={handleDelete} photos={tempFiles} />
       <label>
         <div style={{ height: '50px', border: '1px dashed black' }}>
           Click here to choose files

@@ -1,27 +1,17 @@
-import React from 'react';
-import { PhotoList } from '../PhotoList/PhotoList';
-import { PhotoPreview } from '../PhotoPreview';
+import { FilterablePhotoList } from '../FilterablePhotoList';
+import { usePhotoStore } from '../../hooks';
 import { PhotoUploader } from '../PhotoUploader';
 
-const App = (): JSX.Element => {
-  const [photos, setPhotos] = React.useState<File[]>([]);
-
-  const handleUpload = React.useCallback((photos: File[]) => {
-    setPhotos((prev) => [...prev, ...photos]);
-  }, []);
-
-  const handleDeletePhoto = React.useCallback((toDeleteFileName: string) => {
-    setPhotos((prev) => prev.filter((current) => current.name !== toDeleteFileName));
-  }, [])
+export const App = (): JSX.Element => {
+  const { photos, handleDelete, handleUpload } = usePhotoStore();
 
   return (
     <div>
       <h1>Photos App</h1>
       <PhotoUploader handleUpload={handleUpload} />
       <h2>Uploaded photos:</h2>
-      <PhotoList photos={photos} handleDeletePhoto={handleDeletePhoto} />
+      <FilterablePhotoList photos={photos} handleDeletePhoto={handleDelete} />
     </div>
   )
-}
+};
 
-export default App

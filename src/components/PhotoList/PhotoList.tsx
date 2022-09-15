@@ -6,29 +6,21 @@ interface Props {
   handleDeletePhoto: (fileName: string) => void;
 }
 
-export const PhotoList = ({ photos, handleDeletePhoto }: Props): JSX.Element => {
-  const [query, setQuery] = React.useState('');
-
-  const handleInputChange = React.useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    setQuery(e.target.value);
-  }, []);
-
+export const PhotoList = ({
+  photos,
+  handleDeletePhoto,
+}: Props): JSX.Element => {
   return (
-    <>
-      <input type="text" value={query} onChange={handleInputChange} />
-      <div>
-        {
-          photos
-            .filter((unfiltered) => unfiltered.name.includes(query))
-            .map((filtered) => (
-              <PhotoPreview
-                key={filtered.name}
-                photo={filtered}
-                handleDelete={() => handleDeletePhoto(filtered.name)}
-              />
-            ))
-        }
-      </div>
-    </>
+    <div>
+      {
+        photos.map((photo) => (
+          <PhotoPreview
+            key={photo.name}
+            photo={photo}
+            handleDelete={() => handleDeletePhoto(photo.name)}
+          />
+        ))
+      }
+    </div>
   );
 };
