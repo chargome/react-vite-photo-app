@@ -1,5 +1,5 @@
-import { useNotificationStore } from "../../store/Notification";
-import { CloseIconButton } from "../CloseIconButton";
+import { useNotificationStore } from '../../store/Notification';
+import { CloseIconButton } from '../CloseIconButton';
 
 export const Alert = (): JSX.Element => {
   const [
@@ -18,4 +18,4 @@ export const Alert = (): JSX.Element => {
       <CloseIconButton handleClick={close} />
     </div>
   );
-}
+};

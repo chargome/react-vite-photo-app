@@ -1,6 +1,5 @@
-import React from "react";
-import { PhotoList } from "../PhotoList";
-import { PhotoPreview } from "../PhotoPreview";
+import React from 'react';
+import { PhotoList } from '../PhotoList';
 
 interface Props {
   photos: File[];
@@ -8,8 +7,7 @@ interface Props {
 }
 
 export const FilterablePhotoList = ({ photos, handleDeletePhoto }: Props): JSX.Element => {
-  const [query, setQuery] = React.useState('');
-
+	const [query, setQuery] = React.useState('');
   const handleInputChange = React.useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value);
   }, []);

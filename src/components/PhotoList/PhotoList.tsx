@@ -1,4 +1,4 @@
-import { PhotoPreview } from "../PhotoPreview";
+import { PhotoPreview } from '../PhotoPreview';
 
 interface Props {
   photos: File[];
@@ -7,10 +7,10 @@ interface Props {
 }
 
 const VARIANT_STYLES = {
-  vertical: "flex flex-col",
-  horizontal: "flex flex-row w-screen overflow-scroll",
-  grid: "flex max-w-full gap-4 flex-wrap items-center content-center",
-}
+  vertical: 'flex flex-col',
+  horizontal: 'flex flex-row w-screen overflow-scroll',
+  grid: 'flex max-w-full gap-4 flex-wrap items-center content-center',
+};
 
 export const PhotoList = ({
   photos,

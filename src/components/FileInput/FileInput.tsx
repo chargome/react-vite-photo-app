@@ -11,12 +11,12 @@ export const FileInput = ({ setFiles }: Props): JSX.Element => {
         <input
           type="file"
           accept="image/*"
-          style={{ display: "none" }}
+          style={{ display: 'none' }}
           multiple
           onChange={(e) =>
             setFiles(Array.from(e.target.files || []))
           }
         />
       </label>
-  )
-}
+  );
+};

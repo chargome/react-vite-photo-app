@@ -1,6 +1,6 @@
-import React from "react";
-import { bytesToMbLabel } from "../../util";
-import { CloseIconButton } from "../CloseIconButton";
+import React from 'react';
+import { bytesToMbLabel } from '../../util';
+import { CloseIconButton } from '../CloseIconButton';
 interface Props {
   photo: File;
   handleDelete: (fileName: string) => void;
@@ -44,4 +44,4 @@ export const PhotoPreview = ({
       </div>
     </div>
   );
-}
+};

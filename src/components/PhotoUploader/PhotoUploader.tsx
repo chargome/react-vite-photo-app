@@ -1,11 +1,11 @@
-import React from "react";
-import { useNotificationStore } from "../../store/Notification";
-import { Button } from "../Button";
-import { FileInput } from "../FileInput";
-import { PhotoList } from "../PhotoList";
+import React from 'react';
+import { useNotificationStore } from '../../store/Notification';
+import { Button } from '../Button';
+import { FileInput } from '../FileInput';
+import { PhotoList } from '../PhotoList';
 
 interface Props {
-  handleUpload: ([photos]: any[]) => void;
+  handleUpload: ([photos]: File[]) => void;
 }
 
 export const PhotoUploader = ({ handleUpload }: Props): JSX.Element => {
@@ -16,7 +16,7 @@ export const PhotoUploader = ({ handleUpload }: Props): JSX.Element => {
   const handleClickUpload = React.useCallback(() => {
     handleUpload(tempFiles);
     setTempFiles([]);
-    showNotification('Your files have been uploaded!')
+    showNotification('Your files have been uploaded!');
   }, [handleUpload, tempFiles]);
 
   const handleClickDelete = React.useCallback((toDeleteFileName: string) => {
@@ -49,5 +49,5 @@ export const PhotoUploader = ({ handleUpload }: Props): JSX.Element => {
       }
     </div>
   );
-}
+};
 

@@ -1,6 +1,6 @@
-import { usePhotoStore } from "../../hooks";
-import { FilterablePhotoList } from "../FilterablePhotoList";
-import { PhotoUploader } from "../PhotoUploader";
+import { usePhotoStore } from '../../hooks';
+import { FilterablePhotoList } from '../FilterablePhotoList';
+import { PhotoUploader } from '../PhotoUploader';
 
 export const PhotoApp = () => {
   const { photos, handleDelete, handleUpload } = usePhotoStore();
