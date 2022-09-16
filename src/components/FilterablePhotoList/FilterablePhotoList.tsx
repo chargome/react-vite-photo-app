@@ -17,6 +17,7 @@ export const FilterablePhotoList = ({ photos, handleDeletePhoto }: Props): JSX.E
       <div className="p-4">
         <label className="text-md">Filter images by name:</label>
         <input
+          data-testid="query-input"
           className="bg-black text-white p-1 ring-1 ring-white rounded m-2"
           type="text"
           value={query}
